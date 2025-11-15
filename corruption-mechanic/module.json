@@ -1,0 +1,31 @@
+{
+  "id": "corruption-mechanic",
+  "title": "corruption-mechanic",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "SkroxiousDM",
+      "email": "skroxiousdm@gmail.com",
+      "url": "https://skroxiousdm.github.io/SkroxiousDM/",
+      "discord": "SkroxiousDM",
+      "flags": {}
+    }
+  ],
+  "flags": {
+    "canUpload": true
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "custom-fields",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "description": ""
+}
