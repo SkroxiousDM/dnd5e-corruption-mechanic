@@ -15,6 +15,8 @@ If your total Corruption (temporary plus permanent) exceeds your Corruption Thre
 the module will automatically manage the increase in Temporary or Permanent Corruption generated from casting spells. 
 When a spell item is called, 1d4 + spell level is applied to an actor's Temporary Corruption.
 
+If your total Corruption (temporary plus permanent) exceeds your Corruption Threshold, the module will make a Corruption check, to see if you can bear so much darkness. Roll a d20. If the result is equal to or less than the amount by which your current Corruption exceeds your Threshold, you will gain a mark of Corruption. Roll 1d20 on the Marks of Corruption table. The mark fades 24 hours after your total Corruption drops below your Corruption Threshold.
+
 
 to do:
 - implement the effects of favored and upcasted spells
