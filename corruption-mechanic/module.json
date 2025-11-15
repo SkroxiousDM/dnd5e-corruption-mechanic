@@ -18,6 +18,9 @@
   "flags": {
     "canUpload": true
   },
+ "scripts": {
+    "scripts/corruption.js"
+  },
   "relationships": {
     "requires": [
       {
