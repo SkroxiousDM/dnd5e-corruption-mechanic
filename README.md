@@ -1,3 +1,9 @@
+__**I must preface this with I have no real idea of what I'm doing**__
+
+***this is a work in progress.***
+
+**I'm trying to bring the mechanics from Free League's Ruins of Symbaroum into version 13 as they have indicated that they will no longer be supporting their Foundry implementation as of the beginning of Version 12**
+
 characters use an alternate spellcasting system from core dnd5e focused on a secondary attribute pool called "Corruption". 
 This field is displayed on 5e actor sheets currently using the custom fields module.
 
