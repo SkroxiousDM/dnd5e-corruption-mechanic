@@ -1,0 +1,40 @@
+Hooks.once("ready", () => {
+  Hooks.on("Item5e.use", async (item, config, options) => {
+    if (item.type === "spell") {
+      let actor = item.actor;
+
+      let tempCorruption = await actor.getFlag("custom-fields", "temp-corruption") ?? 0;
+      await actor.setFlag("custom-fields", "temp-corruption", tempCorruption + 1);
+
+      let updatedTempCorruption = await actor.getFlag("custom-fields", "temp-corruption") ?? 0;
+      let permCorruption = getProperty(actor.data.flags, "custom-fields.corruption.value") ?? 0;
+      let totalCorruption = updatedTempCorruption + permCorruption;
+      let corruptionThreshold = getProperty(actor.data.flags, "custom-fields.corruption.max") ?? 0;
+      let corruptionCheckDC = totalCorruption - corruptionThreshold;
+
+      if (totalCorruption < corruptionThreshold) return;
+
+      let roll = await new Roll("1d20").roll({async: true});
+      await roll.toMessage({
+        speaker: ChatMessage.getSpeaker({actor: actor}),
+        flavor: `Corruption Check Roll (DC ${corruptionCheckDC})`
+      });
+
+      if (roll.total > corruptionCheckDC) {
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({actor: actor}),
+          content: `<p><strong>Corruption Check Passed</strong></p>`
+        });
+      } else {
+        const rollTable = game.tables.getName("Corruption Effects");
+        if (rollTable) {
+          rollTable.draw();
+        } else {
+          ChatMessage.create({
+            content: `<p><strong>Corruption roll table not found!</strong></p>`
+          });
+        }
+      }
+    }
+  });
+});
